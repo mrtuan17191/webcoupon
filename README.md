@@ -1,5 +1,11 @@
 == README
 
+# Ruby on Rails : first application web coupon
+
+This is the first application for the
+[*Webcoupon*](newcoupon.vn)
+by [Nguyen Anh Tuan] (mr.tuan171@gmail.com).
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
