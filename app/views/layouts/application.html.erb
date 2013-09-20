@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Coupon</title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+   
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="hdtop navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="dropdown" id="accountmenu">  
+                        
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-map-marker"></i>&nbsp Hà Nội<b class="caret"></b></a>  
+                        
+                        <ul class="dropdown-menu">  
+                            <li><a href="#"><i class="icon-map-marker"></i>&nbsp Hà Nội</a></li>  
+                            <li class="divider"></li>  
+                            <li><a href="#"><i class="icon-map-marker"></i>&nbsp Hồ Chí Minh</a></li>  
+                            <li class="divider"></li>  
+                            <li><a href="#"><i class="icon-map-marker"></i>&nbsp Tỉnh thành khác</a></li>  
+                        </ul>  
+
+                        
+            </li>
+             <li>
+                <a href="#">Coupon hôm nay</a>
+            </li>
+            <li>
+                <a class="haveborder" href="#">Coupon gần đây</a>
+            </li>   
+          </ul> 
+          <ul class="nav pull-right">
+              <li class="dropdown">
+                  <a class="dropdown-toggle" id = "top" data-toggle="dropdown" href="#">Đăng ký nhận tin<b class="caret"></b></a>  
+                        
+                        <ul class="dropdown-menu" id = "top">  
+                            <li>Hãy nhập email vào khung bên dưới để nhận thông tin </br> coupon tốt hàng ngày. Chúng tôi cam kết sẽ không spam.</li>  
+                            <li>
+                              <form class="well">
+                                <input type="text" class = "span3" placeholder="Nhập địa chỉ email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập địa chỉ email'" /> 
+                                </input>
+                                <button type="submit" class="btn"><b>Gửi</b></button>
+                              </form>
+                            </li>
+                        </ul>  
+
+                        
+              </li>
+              <li class="haveborder"><%= link_to "Đăng ký",    '#' %></li>
+              <li class="haveborder"><%= link_to "Đăng nhập", '#' %></li>
+            </ul>
+        </div>
+      </div>
+    </header>
+    <div class=" hdbottom navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+                  <%= link_to image_tag("logo-hotdealvn.png", alt: "Coupon", size: "201x60"), 'http://rubyonrails.org/' %>
+                </a>  
+          </ul>
+           <ul class="nav pull-right">
+              <li>
+                <a href="#">Ăn uống</a>
+              </li>
+              <li>
+                <a href="#">Spa & Làm đẹp</a>
+              </li>
+              <li>
+                <a href="#">Đào tạo & giải trí</a>
+              </li>
+              <li>
+                <a href="#">Sản phẩm</a>
+              </li>
+              <li>
+                <a href="#">Thời trang</a>
+              </li>
+              <li>
+                <a href="#">Du lịch</a>
+              </li>
+              <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-search"></i></a>  
+                        
+                        <ul class="dropdown-menu">   
+                            <li>
+                              <form class="well">
+                                <input type="text" class = "span3" placeholder="Bạn cần tìm coupon gì?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bạn cần tìm coupon gì?'" /> 
+                                </input>
+                                <button type="submit" class="btn"><b>Gửi</b></button>
+                              </form>
+                            </li>
+                        </ul>  
+
+                        
+              </li>
+           </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container web-body" >
+      <%= yield %>
+    </div>
+  </body>
+  <script type="text/javascript">
+   // script to make second fixed bar work as expected 
+    
+      $(document).scroll(function(){
+        if($(this).scrollTop() > 0){
+          $('.hdbottom').css({"top":"0px"});
+        }
+        else {
+          $('.hdbottom').css({"top":"36px"});
+        }
+      });
+
+    //script to make the pull right menu change when hover
+   
+      $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle ,.hdtop>.navbar-inner>.container > ul.nav.pull-right > li.dropdown > ul.dropdown-menu  ").hover(
+        function(){
+          $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle ").css("background-color","#fff");
+          $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle ").css("color","#000");
+          $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle > .caret").css("border-top-color","#000");
+
+        },
+         function(){
+          $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle ").css("background-color","#000");
+          $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle ").css("color","#BBB");
+           $(".hdtop>.navbar-inner>.container >ul.nav.pull-right > li.dropdown > a.dropdown-toggle > .caret").css("border-top-color","#fff");
+
+        }
+        );
+      
+    </script>
+</html>
